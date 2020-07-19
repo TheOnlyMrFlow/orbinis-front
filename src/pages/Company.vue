@@ -7,33 +7,15 @@
         style="background-image: url('img/company-parallax.jpg')"
       >
       </parallax> -->
-      <div class="content-center">
-        <div class="container">
-          <h1 class="title">Orbinis</h1>
-          <!-- <div class="text-center">
-            <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-              <i class="fab fa-facebook-square"></i>
-            </a>
-            <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-              <i class="fab fa-google-plus"></i>
-            </a>
-          </div> -->
-        </div>
-      </div>
+      
     </div>
     <div class="section section-about-us">
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">The company</h2>
+            <h2 class="title">{{shortDescription.titre}}</h2>
             <h5 class="description">
-              According to the National Oceanic and Atmospheric Administration,
-              Ted, Scambos, NSIDClead scentist, puts the potentially record low
-              maximum sea ice extent tihs year down to low ice extent in the
-              Pacific and a late drop in ice extent in the Barents Sea.
+              {{shortDescription.contenu}}
             </h5>
           </div>
         </div>
@@ -230,6 +212,7 @@
 <script>
 import { Button, FormGroupInput } from '@/components';
 import CarouselSection from './components/CarouselSection';
+import axios from 'axios';
 export default {
   name: 'company',
   bodyClass: 'company-page',
@@ -244,8 +227,17 @@ export default {
         firstName: '',
         email: '',
         message: ''
+      },
+      shortDescription: {
+        titre: '',
+        contenu: ''
       }
     };
+  },
+  async mounted () {
+    const shortDescRequest = axios.get(`${process.env.VUE_APP_API_URL}/company-description-courte`);
+    this.shortDescription = (await shortDescRequest).data.section;
+      
   }
 };
 </script>

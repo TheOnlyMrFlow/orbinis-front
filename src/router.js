@@ -12,19 +12,28 @@ Vue.use(Router);
 export default new Router({
   linkExactActiveClass: 'active',
   routes: [
+    // {
+    //   path: '/',
+    //   name: 'index',
+    //   components: { default: Index, header: MainNavbar, footer: MainFooter },
+    //   props: {
+    //     header: { colorOnScroll: 400 },
+    //     footer: { backgroundColor: 'black' }
+    //   }
+    // },
     {
       path: '/',
-      name: 'index',
-      components: { default: Index, header: MainNavbar, footer: MainFooter },
+      name: 'company',
+      components: { default: Company, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: 'black' }
       }
     },
     {
-      path: '/company',
-      name: 'company',
-      components: { default: Company, header: MainNavbar, footer: MainFooter },
+      path: '/projets/:id',
+      name: 'projet',
+      components: { default: Index, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: 'black' }

@@ -110,7 +110,7 @@
           rel="tooltip"
           title="Follow us on Instagram"
           data-placement="bottom"
-          href="https://www.instagram.com/CreativeTimOfficial"
+          href="https://www.instagram.com/compagnie.orbinis/"
           target="_blank"
         >
           <i class="fab fa-instagram"></i>

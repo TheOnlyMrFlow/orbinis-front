@@ -5,7 +5,7 @@
     :data-background-color="backgroundColor"
   >
     <div class="container">
-      <nav>
+      <!-- <nav>
         <ul>
           <li>
             <a href="https://www.creative-tim.com">
@@ -23,19 +23,12 @@
             </a>
           </li>
         </ul>
-      </nav>
-      <div class="copyright">
-        &copy; {{ year }}, Designed by
-        <a href="https:///www.invisionapp.com" target="_blank" rel="noopener"
-          >Invision</a
-        >. Coded by
-        <a href="https://binarcode.com" target="_blank" rel="noopener"
-          >BinarCode</a
+      </nav> -->
+      <div class="copyright content-center">
+        &copy; {{ year }}, Designed and coded by
+        <a href="https://www.linkedin.com/in/florian-comte-110918107" target="_blank" rel="noopener"
+          >Florian Comte</a
         >
-        and
-        <a href="https://www.creative-tim.com" target="_blank" rel="noopener"
-          >Creative Tim</a
-        >.
       </div>
     </div>
   </footer>
