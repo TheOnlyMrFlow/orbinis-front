@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Index from './pages/Index.vue';
+// import Index from './pages/Index.vue';
 import Company   from './pages/Company';
+import Project   from './pages/Project';
 import Login from './pages/Login.vue';
 import Profile from './pages/Profile.vue';
 import MainNavbar from './layout/MainNavbar.vue';
@@ -31,9 +32,9 @@ export default new Router({
       }
     },
     {
-      path: '/projets/:id',
+      path: '/projects/:id',
       name: 'projet',
-      components: { default: Index, header: MainNavbar, footer: MainFooter },
+      components: { default: Project, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: 'black' }

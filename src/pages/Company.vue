@@ -237,7 +237,6 @@ export default {
   async mounted () {
     const shortDescRequest = axios.get(`${process.env.VUE_APP_API_URL}/company-description-courte`);
     this.shortDescription = (await shortDescRequest).data.section;
-      
   }
 };
 </script>

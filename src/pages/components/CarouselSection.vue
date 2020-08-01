@@ -4,19 +4,19 @@
       <div class="row justify-content-center">
         <div class="col-12">
           <el-carousel height="500px" arrow.height="2000px">
-            <el-carousel-item v-for="projet in projets" :key="projet.id">
+            <el-carousel-item v-for="project in projects" :key="project.id">
               <parallax
                 class="page-header-image d-block"
-                :style="{ backgroundImage: 'url(' + projet.imageCouverture.fullUrl + ')'}"
+                :style="{ backgroundImage: 'url(' + project.coverPicture.fullUrl + ')'}"
               >
               </parallax>
               <div class="carousel-caption d-none d-md-block">
-                <h5>{{projet.sousTitre}}</h5>
+                <h5>{{project.subTitle}}</h5>
               </div>
-              <router-link :to="{ path: '/projets/' + projet.id}">
+              <router-link :to="{ path: '/projects/' + project.id}">
                 <div class="content-center">
                   <div class="container">
-                    <h1 class="title">{{projet.titre}}</h1>
+                    <h1 class="title">{{project.title}}</h1>
                   </div>
                 </div>
               </router-link>
@@ -39,16 +39,14 @@ export default {
   },
   data() {
     return {
-      projets: []
+      projects: []
     }
   },
   async mounted() {
-    const projectsRequest = axios.get(`${process.env.VUE_APP_API_URL}/projets`);
-    this.projets = (await projectsRequest).data.map(x => {
-      const res = x.Projet;
-      res.imageCouverture.fullUrl = `${process.env.VUE_APP_API_URL}${res.imageCouverture.url}`
-            
-      return res;
+    const projectsRequest = axios.get(`${process.env.VUE_APP_API_URL}/projects`);
+    this.projects = (await projectsRequest).data.map(x => {
+      x.coverPicture.fullUrl = `${process.env.VUE_APP_API_URL}${x.coverPicture.url}`
+      return x;
     });    
   }
 };
