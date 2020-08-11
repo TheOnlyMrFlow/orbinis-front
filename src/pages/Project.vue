@@ -1,11 +1,12 @@
 <template>
     <div>
-      <div class="page-header page-header-small">
+      <div class="page-header page-header-mini" style="height: 200px">
         <parallax
           class="page-header-image"
-          :style="{ backgroundImage: 'url(' + project.coverPicture.fullUrl + ')'}"
+          :style="{ backgroundImage: 'url(' + project.coverPicture.fullUrl + ')' }"
         >
         </parallax>
+        <div class="mask"></div>
         <div class="content-center">
           <div class="container">
             <h1 class="title">{{project.title}}</h1>
@@ -75,8 +76,11 @@ export default {
         coverPicture:{
           fullUrl: null
         },
-        paragraphs:[]
-      }
+        paragraphs:[],
+      },
+      //parallaxBg: '-webkit-linear-gradient(top, rgba(30,30,30,0) 0%, rgba(30,30,30,0) 60%, rgba(30,30,30,0.8) 100% ), url(http://localhost:1337/uploads/confhumain_5e6257d57a.png)'
+      //parallaxBg: '-webkit-gradient(linear, left top, 0% 80%, from(rgba(37,37,37,0)), to(rgba(30,30,30,0.97))), url(http://localhost:1337/uploads/confhumain_5e6257d57a.png)'
+      parallaxBg: 'url(http://localhost:1337/uploads/confhumain_5e6257d57a.png)'
     };
   },
   async mounted () {
@@ -108,5 +112,15 @@ export default {
   justify-self: center;
   display: flex;
   justify-content: center;
+}
+
+.mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  background-image: -webkit-linear-gradient(top, rgba(30,30,30,0) 0%, rgba(37,37,37,0.97) 100% );
 }
 </style>

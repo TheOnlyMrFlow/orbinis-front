@@ -27,7 +27,7 @@ export default new Router({
       name: 'company',
       components: { default: Company, header: MainNavbar, footer: MainFooter },
       props: {
-        header: { colorOnScroll: 400 },
+        header: { colorOnScroll: 100 },
         footer: { backgroundColor: 'black' }
       }
     },
@@ -36,7 +36,7 @@ export default new Router({
       name: 'projet',
       components: { default: Project, header: MainNavbar, footer: MainFooter },
       props: {
-        header: { colorOnScroll: 400 },
+        header: { colorOnScroll: 100 },
         footer: { backgroundColor: 'black' }
       }
     },
@@ -45,7 +45,7 @@ export default new Router({
       name: 'login',
       components: { default: Login, header: MainNavbar },
       props: {
-        header: { colorOnScroll: 400 }
+        header: { colorOnScroll: 100 }
       }
     },
     {
@@ -53,7 +53,7 @@ export default new Router({
       name: 'profile',
       components: { default: Profile, header: MainNavbar, footer: MainFooter },
       props: {
-        header: { colorOnScroll: 400 },
+        header: { colorOnScroll: 100 },
         footer: { backgroundColor: 'black' }
       }
     }
