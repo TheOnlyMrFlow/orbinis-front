@@ -7,7 +7,7 @@
             <el-carousel-item v-for="project in projects" :key="project.id">
               <parallax
                 class="page-header-image d-block"
-                :style="{ backgroundImage: 'url(' + project.coverPicture.fullUrl + ')'}"
+                :style="{ backgroundImage: 'url(' + project.coverPicture.url + ')'}"
               >
               </parallax>
               <div class="carousel-caption d-none d-md-block">
@@ -44,10 +44,7 @@ export default {
   },
   async mounted() {
     const projectsRequest = axios.get(`${process.env.VUE_APP_API_URL}/projects`);
-    this.projects = (await projectsRequest).data.map(x => {
-      x.coverPicture.fullUrl = `${process.env.VUE_APP_API_URL}${x.coverPicture.url}`
-      return x;
-    });    
+    this.projects = (await projectsRequest).data;
   }
 };
 </script>
