@@ -1,9 +1,13 @@
 .navbar{
     padding-top: $navbar-padding-base;
-    padding-bottom: $navbar-padding-base;
+    // padding-bottom: $navbar-padding-base;
     min-height: 53px;
     margin-bottom: 20px;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    color: #FFF;
+    border-bottom-style: solid ;
+    border-bottom-color: #FFF;
+    border-bottom-width: 1px;
 
     a{
         vertical-align: middle;
@@ -45,7 +49,7 @@
 
         .nav-link:not(.btn){
             text-transform: uppercase;
-            font-size: $font-size-mini;
+            font-size: $font-size-navbar;
             padding: $padding-base-vertical $padding-base-horizontal;
             line-height: $line-height-nav-link;
 
@@ -101,7 +105,7 @@
 
     .navbar-brand{
         text-transform: uppercase;
-        font-size: $font-size-small;
+        font-size: $font-size-large-navbar;
         padding-top: $padding-base-vertical;
         padding-bottom: $padding-base-vertical;
         line-height: $line-height-nav-link;

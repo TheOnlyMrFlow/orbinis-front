@@ -29,12 +29,10 @@
               >
                 <!-- First image on the left side -->
                 <p class="blockquote blockquote-primary">
-                  "Over the span of the satellite record, Arctic sea ice has
-                  been declining significantly, while sea ice in the
-                  Antarctichas increased very slightly"
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget lectus tincidunt orci pretium ultrices. Morbi in lectus vel augue suscipit facilisis. Quisque sit amet tincidunt tortor, eget viverra elit. "
                   <br />
                   <br />
-                  <small>-NOAA</small>
+                  <small>-Lorem ipsum</small>
                 </p>
               </div>
               <!-- Second image on the left side of the article -->
@@ -50,34 +48,16 @@
                 style="background-image: url('img/company3.jpg')"
               ></div>
               <h3>
-                So what does the new record for the lowest level of winter ice
-                actually mean
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </h3>
               <p>
-                The Arctic Ocean freezes every winter and much of the sea-ice
-                then thaws every summer, and that process will continue whatever
-                happens with climate change. Even if the Arctic continues to be
-                one of the fastest-warming regions of the world, it will always
-                be plunged into bitterly cold polar dark every winter. And
-                year-by-year, for all kinds of natural reasons, there’s huge
-                variety of the state of the ice.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget lectus tincidunt orci pretium ultrices. Morbi in lectus vel augue suscipit facilisis. Quisque sit amet tincidunt tortor, eget viverra elit. Nam ut odio vitae nisi lobortis hendrerit. Nulla urna lectus, viverra vitae sem sed, interdum pretium lorem.
               </p>
               <p>
-                For a start, it does not automatically follow that a record
-                amount of ice will melt this summer. More important for
-                determining the size of the annual thaw is the state of the
-                weather as the midnight sun approaches and temperatures rise.
-                But over the more than 30 years of satellite records, scientists
-                have observed a clear pattern of decline, decade-by-decade.
+                Vivamus vestibulum purus ac diam consectetur commodo. Nulla facilisi. Aenean eleifend enim magna, sed ornare justo mattis non. Fusce venenatis aliquet enim, ut auctor ante rutrum ut. Sed pharetra pretium nisi, at tincidunt diam posuere rutrum. Nulla congue urna ut lacinia sagittis. Mauris accumsan sollicitudin urna id dignissim. Sed vel rutrum diam.
               </p>
               <p>
-                The Arctic Ocean freezes every winter and much of the sea-ice
-                then thaws every summer, and that process will continue whatever
-                happens with climate change. Even if the Arctic continues to be
-                one of the fastest-warming regions of the world, it will always
-                be plunged into bitterly cold polar dark every winter. And
-                year-by-year, for all kinds of natural reasons, there’s huge
-                variety of the state of the ice.
+                Maecenas elit ipsum, gravida non quam id, bibendum egestas dolor. Duis tempor, erat ut maximus imperdiet, nunc magna efficitur leo, at ultrices nisi odio ut arcu. Vivamus dictum arcu eu lorem malesuada tincidunt. Donec tincidunt orci nec tempus venenatis. Curabitur a massa ultricies lorem varius maximus.
               </p>
             </div>
           </div>
@@ -96,13 +76,10 @@
                   alt="Thumbnail Image"
                   class="rounded-circle img-fluid img-raised"
                 />
-                <h4 class="title">Romina Hadid</h4>
+                <h4 class="title">Cunégonde</h4>
                 <p class="category text-primary">Model</p>
                 <p class="description">
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#">links</a> for people to be able to follow
-                  them outside the site.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget lectus tincidunt orci pretium ultrices. Morbi in lectus vel augue suscipit facilisis. Quisque sit amet tincidunt tortor, eget viverra elit.
                 </p>
                 <a href="#pablo" class="btn btn-primary btn-icon btn-round"
                   ><i class="fab fa-twitter"></i
@@ -122,13 +99,10 @@
                   alt="Thumbnail Image"
                   class="rounded-circle img-fluid img-raised"
                 />
-                <h4 class="title">Ryan Tompson</h4>
+                <h4 class="title">Jean-Michel</h4>
                 <p class="category text-primary">Designer</p>
                 <p class="description">
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#">links</a> for people to be able to follow
-                  them outside the site.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget lectus tincidunt orci pretium ultrices. Morbi in lectus vel augue suscipit facilisis. Quisque sit amet tincidunt tortor, eget viverra elit.
                 </p>
                 <a href="#pablo" class="btn btn-primary btn-icon btn-round"
                   ><i class="fab fa-twitter"></i
@@ -145,13 +119,10 @@
                   alt="Thumbnail Image"
                   class="rounded-circle img-fluid img-raised"
                 />
-                <h4 class="title">Eva Jenner</h4>
+                <h4 class="title">Ta tante en bois</h4>
                 <p class="category text-primary">Fashion</p>
                 <p class="description">
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#">links</a> for people to be able to follow
-                  them outside the site.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget lectus tincidunt orci pretium ultrices. Morbi in lectus vel augue suscipit facilisis. Quisque sit amet tincidunt tortor, eget viverra elit.
                 </p>
                 <a href="#pablo" class="btn btn-primary btn-icon btn-round"
                   ><i class="fab fa-google-plus"></i
@@ -168,50 +139,14 @@
         </div>
       </div>
     </div>
-    <div class="section section-contact-us text-center">
-      <div class="container">
-        <h2 class="title">Want to work with us?</h2>
-        <p class="description">Your project is very important to us.</p>
-        <div class="row">
-          <div class="col-lg-6 text-center ml-auto mr-auto col-md-8">
-            <fg-input
-              class="input-lg"
-              placeholder="First Name..."
-              v-model="form.firstName"
-              addon-left-icon="now-ui-icons users_circle-08"
-            >
-            </fg-input>
-            <fg-input
-              class="input-lg"
-              placeholder="Email Here..."
-              v-model="form.email"
-              addon-left-icon="now-ui-icons ui-1_email-85"
-            >
-            </fg-input>
-            <div class="textarea-container">
-              <textarea
-                class="form-control"
-                name="name"
-                rows="4"
-                cols="80"
-                v-model="form.message"
-                placeholder="Type a message..."
-              ></textarea>
-            </div>
-            <div class="send-button">
-              <n-button type="primary" round block size="lg"
-                >Send Message</n-button
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <contact-form>
+    </contact-form>
   </div>
 </template>
 <script>
 import { Button, FormGroupInput } from '@/components';
 import CarouselSection from './components/CarouselSection';
+import ContactForm from './components/ContactForm';
 import axios from 'axios';
 export default {
   name: 'company',
@@ -219,15 +154,11 @@ export default {
   components: {
     [Button.name]: Button,
     [FormGroupInput.name]: FormGroupInput,
-    CarouselSection
+    CarouselSection,
+    ContactForm
   },
   data() {
     return {
-      form: {
-        firstName: '',
-        email: '',
-        message: ''
-      },
       shortDescription: {
         titre: '',
         contenu: ''

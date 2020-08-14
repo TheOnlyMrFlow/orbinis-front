@@ -21,7 +21,6 @@
                 </div>
               </router-link>
             </el-carousel-item>
-            
           </el-carousel>
         </div>
       </div>

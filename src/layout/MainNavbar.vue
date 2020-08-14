@@ -40,13 +40,15 @@
           <i class="now-ui-icons design_bullet-list-67"></i> Documentation
         </a>
       </drop-down> -->
-      <drop-down
+
+
+      <!-- <drop-down
               tag="li"
               title="Projects"
               icon="now-ui-icons design_image"
               class="nav-item"
       >
-        <nav-link to="/company">
+        <nav-link to="/projects#shows">
           <i class="now-ui-icons education_paper"></i> Repertoire
         </nav-link>
         <nav-link to="/login">
@@ -55,7 +57,18 @@
         <nav-link to="/profile">
           <i class="now-ui-icons users_single-02"></i> Open airs
         </nav-link>
-      </drop-down>
+      </drop-down> -->
+
+      <li class="nav-item">
+        <router-link to="/projects"
+          class="nav-link"
+        >
+          <!-- <i class="now-ui-icons business_briefcase-24"></i> -->
+          <p>Projects</p>
+        </router-link>
+      </li>
+
+
       <!-- <li class="nav-item">
         <a
           class="nav-link btn btn-neutral"
@@ -68,14 +81,11 @@
       </li> -->
 
       <li class="nav-item">
-        <a
+        <router-link to="/contact"
           class="nav-link"
-          href="https://www.creative-tim.com/product/vue-now-ui-kit-pro"
-          target="_blank"
         >
-          <i class="now-ui-icons arrows-1_share-66"></i>
           <p>Contact us</p>
-        </a>
+        </router-link>
       </li>
 
       <li class="nav-item">
@@ -84,7 +94,7 @@
           rel="tooltip"
           title="Follow us on Twitter"
           data-placement="bottom"
-          href="https://twitter.com/CreativeTim"
+          href=""
           target="_blank"
         >
           <i class="fab fa-twitter"></i>
@@ -97,7 +107,7 @@
           rel="tooltip"
           title="Like us on Facebook"
           data-placement="bottom"
-          href="https://www.facebook.com/CreativeTim"
+          href="https://www.facebook.com/Compagnie-Orbinis-100228168447728"
           target="_blank"
         >
           <i class="fab fa-facebook-square"></i>
@@ -131,9 +141,9 @@ export default {
     colorOnScroll: Number
   },
   components: {
-    DropDown,
+    //DropDown,
     Navbar,
-    NavLink,
+    //NavLink,
     [Popover.name]: Popover
   }
 };

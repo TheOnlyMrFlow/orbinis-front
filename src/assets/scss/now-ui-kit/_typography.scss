@@ -74,6 +74,8 @@ p{
 .title{
     font-weight: $font-weight-bold;
     padding-top: 30px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 
 
     &.title-up{
