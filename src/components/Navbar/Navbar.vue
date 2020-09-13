@@ -178,7 +178,12 @@ export default {
   },
   beforeDestroy() {
     document.removeEventListener('scroll', this.scrollListener);
-  }
+  },
+  watch:{
+    $route (to, from){
+        this.close();
+    }
+} 
 };
 </script>
 <style></style>

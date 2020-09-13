@@ -2,18 +2,18 @@
     <div>
       <div class="section">
         <div class="container" style="text-align: justify;">
-        <center><h2 class="projects-page-title" >DISCOVER OUR PROJECTS</h2></center>
+        <center><h2 class="projects-page-title" >OUR PROJECTS</h2></center>
           <div v-for="category in categories" :key="category.name">
-            <h2 class="project-category-title">{{category.en}}</h2>
+            <h3 class="project-category-title">{{category.en}}</h3>
             <router-link v-for="project in projects[category.name]" :key="project.id" :to="{ path: '/projects/' + project.id}">
               <div class="row project-row">
-                <div class="col-md-3 project-thumbnail-container">
-                  <img class="project-thumbnail" :src="project.coverPicture.url">
+                <div class="col-12 col-md-3 project-thumbnail-container">
+                  <img class="project-thumbnail" :src="project.coverPicture.formats.medium.url">
                 </div>
-                <div class="col-md-9">
+                <div class="col-12 col-md-9">
                   <div>
-                    <h3 class="project-title">{{project.title}}</h3>
-                    <p>{{project.paragraphs[0] ? project.paragraphs[0].content : ''}}</p>
+                    <h4 class="project-title">{{project.title}}</h4>
+                    <p class="preview">{{project.preview}}</p>
                   </div>
                 </div>
               </div>
@@ -58,17 +58,44 @@ export default {
   async mounted () {    
     const projectListRequest = axios.get(`${process.env.VUE_APP_API_URL}/projects`);
     const projectsData = (await projectListRequest).data;
+    projectsData.forEach(proj => {
+      if (! proj.paragraphs[0]) proj.preview = "";
+      proj.preview = proj.paragraphs[0].content.substring(0, 200) + " . . .";
+    })
     const projects = {};
     this.categories.forEach(cat => {
       projects[cat.name] = projectsData.filter(x => x.type == cat.name);
     });
-    this.projects = projects;  
+    this.projects = projects;
   }
 };
 </script>
 <style lang="scss">
 
 @import '../assets/scss/now-ui-kit/_variables.scss';
+
+.thumb1 { 
+  width: 250px;
+  height: 250px;
+}
+
+@media only screen and (max-width: 768px) {
+ 
+  
+  .project-row {
+    flex-direction: row-reverse;
+  }
+
+  .project-title {
+    margin-top: 0px;
+    text-align: center;
+  }
+
+  .project-thumbnail-container {
+    display: none !important;
+  }
+}
+
 
 .project-thumbnail-container {
   display: flex;
@@ -96,9 +123,6 @@ a:last-child .project-row {
 }
 
 .project-row:hover {
-  height: 200px;
-  margin: 20px 0;
-  padding: 20px 0;
   border-bottom-style: solid;
   border-width: 1px;
   border-color: white;
@@ -106,13 +130,13 @@ a:last-child .project-row {
 }
 
 .project-row div {
-  height: 100%;
+  max-height: 20vh;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .project-row img {
-  height: 100%;
+  height: 80%;
   overflow: hidden;
 }
 

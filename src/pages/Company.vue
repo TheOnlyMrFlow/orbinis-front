@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="landing">
     <div class="page-header page-header-small">
     <carousel-section></carousel-section>
       <!-- <parallax
@@ -8,6 +8,9 @@
       >
       </parallax> -->
       
+    </div>
+    <div class="mobile-landing">
+      <h2>ORBINIS</h2>
     </div>
     <div class="section section-about-us">
       <div class="container">
@@ -62,6 +65,11 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="text-center">
+        <router-link to="/projects">
+          <n-button type="primary" color="danger" round size="lg">Discover our projects</n-button>
+        </router-link>
       </div>
     </div>
     <div class="section section-team text-center">
@@ -171,4 +179,37 @@ export default {
   }
 };
 </script>
-<style></style>
+
+<style lang="scss">
+
+@import '../assets/scss/now-ui-kit/_variables.scss';
+
+.landing {
+  @media only screen and (max-width: 768px) {
+  .page-header {
+    display: none;
+  }
+
+  .mobile-landing {
+    display: flex !important;
+  }
+}
+
+.mobile-landing {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background: $black-bg;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  /* position: absolute; */
+  top: -50px;
+  color: white;
+}
+}
+
+
+
+</style>
