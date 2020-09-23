@@ -7,6 +7,7 @@ import ProjectList   from './pages/ProjectList';
 import Login from './pages/Login.vue';
 import Contact from './pages/ContactUs.vue';
 import Profile from './pages/Profile.vue';
+import Maintenance from './pages/Maintenance.vue'
 import MainNavbar from './layout/MainNavbar.vue';
 import MainFooter from './layout/MainFooter.vue';
 
@@ -31,6 +32,11 @@ export default new Router({
     }
   },
   routes: [
+    {
+        path: process.env.VUE_APP_MAINTENANCE_MODE === 'true' ? '/*' : '/maintenance',
+        name: 'maintenance',
+        component: Maintenance
+    },
     {
       path: '/index',
       name: 'index',

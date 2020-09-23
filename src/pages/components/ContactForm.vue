@@ -6,18 +6,12 @@
           <template slot="header">
             <h3 class="card-title title-up">Contact us</h3>
           </template>
-          <template>
+          <template v-if="! messageSent">
             <fg-input
               class="no-border"
-              placeholder="First Name..."
+              placeholder="Your name..."
               addon-left-icon="now-ui-icons users_circle-08"
-            >
-            </fg-input>
-
-            <fg-input
-              class="no-border"
-              placeholder="Last Name..."
-              addon-left-icon="now-ui-icons text_caps-small"
+              v-model="form.name"
             >
             </fg-input>
 
@@ -25,6 +19,8 @@
               class="no-border"
               placeholder="Email"
               addon-left-icon="now-ui-icons ui-1_email-85"
+              v-model="form.email"
+              type="mail"
             >
             </fg-input>
             
@@ -40,7 +36,8 @@
             </div>
           </template>
           <div class="card-footer text-center">
-            <n-button type="neutral" round size="lg">Send</n-button>
+            <n-button v-if="! messageSent" type="neutral" round size="lg" @click="send()">Send</n-button>
+            <p v-else>{{ feedbackMessage }}</p>
           </div>
         </card>
       </div>
@@ -49,6 +46,7 @@
 </template>
 <script>
 import { Card, FormGroupInput, Button } from '@/components';
+import axios from 'axios';
 
 export default {
   name: 'contactForm',
@@ -61,10 +59,28 @@ export default {
   data() {
     return {
       form: {
-        firstName: '',
-        lastName: '',
+        name: '',
         email: '',
         message: ''
+      },
+      messageSent: false,
+      feedbackMessage: ''
+    }
+  },
+  methods: {
+    async send() {
+      const payload = {
+          customerName: this.form.name,
+          customerAddress: this.form.email,
+          customerMessage: this.form.message
+        }
+      try {
+        await axios.post(`${process.env.VUE_APP_API_URL}/contact-us`, payload);
+        this.feedbackMessage = 'Your message was successfully sent';
+      } catch(error) {
+        this.feedbackMessage = 'Sorry, an error occured. Please contact lucie@orbinis.dance directly';
+      } finally {
+        this.messageSent = true;
       }
     }
   }
