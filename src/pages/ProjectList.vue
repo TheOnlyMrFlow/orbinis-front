@@ -57,7 +57,7 @@ export default {
           FR: "Collaborations",
         },
         {
-          name: "street-show",
+          name: "streetShow",
           EN: "Street shows",
           FR: "Spectacles en plein air",
         },
