@@ -64,7 +64,7 @@
           class="nav-link"
         >
           <!-- <i class="now-ui-icons business_briefcase-24"></i> -->
-          <p>Projects</p>
+          <p>{{$lang ==='FR' ? 'Projets' : 'Projects'}}</p>
         </router-link>
       </li>
 
@@ -84,7 +84,7 @@
         <router-link to="/contact"
           class="nav-link"
         >
-          <p>Contact us</p>
+          <p>{{$lang ==='FR' ? 'Contactez-nous' : 'Contact us'}}</p>
         </router-link>
       </li>
 
@@ -92,7 +92,7 @@
         <a
           class="nav-link"
           rel="tooltip"
-          title="Follow us on Twitter"
+          :title="$lang ==='FR' ? 'Suivez-nous sur Twitter !' : 'Follow us on Twitter !'"
           data-placement="bottom"
           href=""
           target="_blank"
@@ -105,7 +105,7 @@
         <a
           class="nav-link"
           rel="tooltip"
-          title="Like us on Facebook"
+          :title="$lang ==='FR' ? 'Aimez notre page Facebook !' : 'Like us on Facebook !'"
           data-placement="bottom"
           href="https://www.facebook.com/Compagnie-Orbinis-100228168447728"
           target="_blank"
@@ -118,13 +118,35 @@
         <a
           class="nav-link"
           rel="tooltip"
-          title="Follow us on Instagram"
+          :title="$lang ==='FR' ? 'Suivez-nous sur Instagram !' : 'Follow us on Instagram !'"
           data-placement="bottom"
           href="https://www.instagram.com/compagnie.orbinis/"
           target="_blank"
         >
           <i class="fab fa-instagram"></i>
           <p class="d-lg-none d-xl-none">Instagram</p>
+        </a>
+      </li>
+      <li class="nav-item lang" :class="{selected: $lang === 'FR'}" @click="setLang('FR')">
+        <a
+          class="nav-link"
+          rel="tooltip"
+          :title="$lang ==='FR' ? 'Passer le site en Français' : 'Turn the site in French'"
+          data-placement="bottom"
+          href="/#"
+        >
+        <span>fr</span>
+        </a>
+      </li>
+      <li class="nav-item lang" :class="{selected: $lang === 'EN'}" @click="setLang('EN')">
+        <a
+          class="nav-link"
+          rel="tooltip"
+          :title="$lang ==='FR' ? 'Passer le site en Anglais' : 'Turn the site in English'"
+          data-placement="bottom"
+          href="/#"
+        >
+        <span>en</span>
         </a>
       </li>
     </template>
@@ -141,12 +163,29 @@ export default {
     colorOnScroll: Number
   },
   components: {
-    //DropDown,
+    // DropDown,
     Navbar,
-    //NavLink,
+    // NavLink,
     [Popover.name]: Popover
+  },
+  methods: {
+    setLang(lang) {
+      this.$lang = lang;
+      localStorage.setItem('lang', lang);
+      this.$router.go();
+    }
   }
 };
 </script>
 
-<style scoped></style>
+<style lang="scss">
+.lang {
+  &.selected {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  @media only screen and (min-width: 992px) {
+    border-radius: 50%;
+  }
+}
+</style>

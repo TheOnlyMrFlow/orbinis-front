@@ -1,5 +1,5 @@
 @mixin dropdown-colors($brand-color, $dropdown-header-color, $dropdown-color, $background-color ) {
-    background-color: $brand-color;
+    background-color: white;
 
     &:before{
         color: $brand-color;

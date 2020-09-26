@@ -1,87 +1,93 @@
 <template>
-    <div>
-      <div class="section">
-        <div class="container" style="text-align: justify;">
-        <center><h2 class="projects-page-title" >OUR PROJECTS</h2></center>
-          <div v-for="category in categories" :key="category.name">
-            <h3 class="project-category-title">{{category.en}}</h3>
-            <router-link v-for="project in projects[category.name]" :key="project.id" :to="{ path: '/projects/' + project.id}">
-              <div class="row project-row">
-                <div class="col-12 col-md-3 project-thumbnail-container">
-                  <img class="project-thumbnail" :src="project.coverPicture.formats.medium.url">
-                </div>
-                <div class="col-12 col-md-9">
-                  <div>
-                    <h4 class="project-title">{{project.title}}</h4>
-                    <p class="preview">{{project.preview}}</p>
-                  </div>
+  <div>
+    <div class="section">
+      <div class="container" style="text-align: justify;">
+        <center><h2 class="projects-page-title">{{$lang ==='FR' ? 'NOS PROJETS' : 'OUR PROJECTS'}}</h2></center>
+        <div v-for="category in categories" :key="category.name">
+          <h3 class="project-category-title">{{ category[$lang] }}</h3>
+          <router-link
+            v-for="project in projects[category.name]"
+            :key="project.id"
+            :to="{ path: '/projects/' + project.id }"
+          >
+            <div class="row project-row">
+              <div class="col-12 col-md-3 project-thumbnail-container">
+                <img
+                  class="project-thumbnail"
+                  :src="project.coverPicture.formats.medium.url"
+                />
+              </div>
+              <div class="col-12 col-md-9">
+                <div>
+                  <h4 class="project-title">{{ project.title }}</h4>
+                  <p class="preview">{{ project.preview }}</p>
                 </div>
               </div>
-            </router-link>
-          </div>
+            </div>
+          </router-link>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
-import MainFooter from '@/layout/MainFooter';
-import axios from 'axios'
+import MainFooter from "@/layout/MainFooter";
+import axios from "axios";
 export default {
-  name: 'projects',
-  bodyClass: 'projects-page',
-  components: {
-      
-    },
+  name: "projects",
+  bodyClass: "projects-page",
+  components: {},
   data() {
     return {
       categories: [
         {
-          name: 'piece',
-          en: 'Shows',
-          fr: "Pièces"
+          name: "show",
+          EN: "Shows",
+          FR: "Pièces",
         },
         {
-          name: 'collaboration',
-          en: 'Collabs',
-          fr: "Collaborations"
+          name: "collab",
+          EN: "Collabs",
+          FR: "Collaborations",
         },
         {
-          name: 'openair',
-          en: 'Open-airs',
-          fr: "Open-airs"
-        }
+          name: "street-show",
+          EN: "Street shows",
+          FR: "Spectacles en plein air",
+        },
       ],
-      projects: {}
+      projects: {},
     };
   },
-  async mounted () {    
-    const projectListRequest = axios.get(`${process.env.VUE_APP_API_URL}/projects`);
+  async mounted() {    
+    const projectListRequest = axios.get(
+      `${process.env.VUE_APP_API_URL}/projects`
+    );
     const projectsData = (await projectListRequest).data;
-    projectsData.forEach(proj => {
-      if (! proj.paragraphs[0]) proj.preview = "";
-      proj.preview = proj.paragraphs[0].content.substring(0, 200) + " . . .";
-    })
+    projectsData.forEach((proj) => {
+      proj.preview = 
+        proj.paragraphs[0]
+        ? proj.paragraphs[0][`content_${this.$lang}`].substring(0, 200) + " . . ."
+        : "";
+    });
     const projects = {};
-    this.categories.forEach(cat => {
-      projects[cat.name] = projectsData.filter(x => x.type == cat.name);
+    this.categories.forEach((cat) => {
+      projects[cat.name] = projectsData.filter((x) => x.type == cat.name);
     });
     this.projects = projects;
-  }
+  },
 };
 </script>
 <style lang="scss">
+@import "../assets/scss/now-ui-kit/_variables.scss";
 
-@import '../assets/scss/now-ui-kit/_variables.scss';
-
-.thumb1 { 
+.thumb1 {
   width: 250px;
   height: 250px;
 }
 
 @media only screen and (max-width: 768px) {
- 
-  
   .project-row {
     flex-direction: row-reverse;
   }
@@ -95,7 +101,6 @@ export default {
     display: none !important;
   }
 }
-
 
 .project-thumbnail-container {
   display: flex;
@@ -160,5 +165,4 @@ a {
 .projects-page-title {
   margin: 50px;
 }
-
 </style>
