@@ -60,11 +60,4 @@
     text-decoration: none;
   }
 }
-
-footer{
-  position: absolute;
-  bottom: 0;
-  margin: 10px;
-  font-weight: 300;
-}
 </style>

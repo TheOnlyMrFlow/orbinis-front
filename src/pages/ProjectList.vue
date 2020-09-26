@@ -19,7 +19,7 @@
               </div>
               <div class="col-12 col-md-9">
                 <div>
-                  <h4 class="project-title">{{ project.title }}</h4>
+                  <h4 class="project-title">{{ project[`title_${$lang}`] }}</h4>
                   <p class="preview">{{ project.preview }}</p>
                 </div>
               </div>

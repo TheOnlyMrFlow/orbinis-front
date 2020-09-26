@@ -72,81 +72,7 @@
         </router-link>
       </div>
     </div>
-    <div class="section section-team text-center">
-      <div class="container">
-        <h2 class="title">Members</h2>
-        <div class="team">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="team-player">
-                <img
-                  src="img/avatar.jpg"
-                  alt="Thumbnail Image"
-                  class="rounded-circle img-fluid img-raised"
-                />
-                <h4 class="title">Cunégonde</h4>
-                <p class="category text-primary">Model</p>
-                <p class="description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget lectus tincidunt orci pretium ultrices. Morbi in lectus vel augue suscipit facilisis. Quisque sit amet tincidunt tortor, eget viverra elit.
-                </p>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-facebook-square"></i
-                ></a>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="team-player">
-                <img
-                  src="img/ryan.jpg"
-                  alt="Thumbnail Image"
-                  class="rounded-circle img-fluid img-raised"
-                />
-                <h4 class="title">Jean-Michel</h4>
-                <p class="category text-primary">Designer</p>
-                <p class="description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget lectus tincidunt orci pretium ultrices. Morbi in lectus vel augue suscipit facilisis. Quisque sit amet tincidunt tortor, eget viverra elit.
-                </p>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-linkedin"></i
-                ></a>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="team-player">
-                <img
-                  src="img/eva.jpg"
-                  alt="Thumbnail Image"
-                  class="rounded-circle img-fluid img-raised"
-                />
-                <h4 class="title">Ta tante en bois</h4>
-                <p class="category text-primary">Fashion</p>
-                <p class="description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget lectus tincidunt orci pretium ultrices. Morbi in lectus vel augue suscipit facilisis. Quisque sit amet tincidunt tortor, eget viverra elit.
-                </p>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-google-plus"></i
-                ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-youtube"></i
-                ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <team-section></team-section>
     <contact-form>
     </contact-form>
   </div>
@@ -155,6 +81,7 @@
 import { Button, FormGroupInput } from '@/components';
 import CarouselSection from './components/CarouselSection';
 import ContactForm from './components/ContactForm';
+import TeamSection from './components/TeamSection';
 import axios from 'axios';
 export default {
   name: 'company',
@@ -163,7 +90,8 @@ export default {
     [Button.name]: Button,
     [FormGroupInput.name]: FormGroupInput,
     CarouselSection,
-    ContactForm
+    ContactForm,
+    TeamSection
   },
   data() {
     return {

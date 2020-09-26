@@ -11,12 +11,12 @@
               >
               </parallax>
               <div class="carousel-caption d-none d-md-block">
-                <h5>{{project.subTitle}}</h5>
+                <h5>{{project[`subTitle_${$lang}`]}}</h5>
               </div>
               <router-link :to="{ path: '/projects/' + project.id}">
                 <div class="content-center">
                   <div class="container">
-                    <h1 class="title">{{project.title}}</h1>
+                    <h1 class="title">{{project[`title_${$lang}`]}}</h1>
                   </div>
                 </div>
               </router-link>

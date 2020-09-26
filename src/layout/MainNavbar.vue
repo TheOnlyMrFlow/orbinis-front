@@ -84,7 +84,7 @@
         <router-link to="/contact"
           class="nav-link"
         >
-          <p>{{$lang ==='FR' ? 'Contactez-nous' : 'Contact us'}}</p>
+          <p>{{$lang ==='FR' ? 'Contactez nous' : 'Contact us'}}</p>
         </router-link>
       </li>
 

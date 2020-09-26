@@ -4,12 +4,12 @@
       <div class="row">
         <card class="card-signup" header-classes="text-center" color="orange">
           <template slot="header">
-            <h3 class="card-title title-up">Contact us</h3>
+            <h3 class="card-title title-up">{{$lang === 'FR' ? 'Contactez nous' : 'Contact us'}}</h3>
           </template>
           <template v-if="! messageSent">
             <fg-input
               class="no-border"
-              placeholder="Your name..."
+              :placeholder="$lang === 'FR' ? 'Nom' : 'Name'"
               addon-left-icon="now-ui-icons users_circle-08"
               v-model="form.name"
             >
@@ -31,12 +31,12 @@
                 rows="10"
                 cols="80"
                 v-model="form.message"
-                placeholder="Type a message..."
+                :placeholder="$lang === 'FR' ? 'Ecrivez ici votre message' : 'Write your message here'"
               ></textarea>
             </div>
           </template>
           <div class="card-footer text-center">
-            <n-button v-if="! messageSent" type="neutral" round size="lg" @click="send()">Send</n-button>
+            <n-button v-if="! messageSent" type="neutral" round size="lg" @click="send()">{{$lang === 'FR' ? 'Envoyer' : 'Send'}}</n-button>
             <p v-else>{{ feedbackMessage }}</p>
           </div>
         </card>

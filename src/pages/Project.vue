@@ -9,7 +9,7 @@
         <div class="mask"></div>
         <div class="content-center">
           <div class="container">
-            <h2 class="title">{{project.title}}</h2>
+            <h2 class="title">{{project[`title_${$lang}`]}}</h2>
           </div>
         </div>
       </div>
@@ -42,8 +42,8 @@
                 <img style="float:left;margin:10px" :src="paragraph.picture.url" alt="Thumbnail Image"/>
               </div>
               <div class="col-md-6 paragraph-text">
-                <h4>Lorem ipsum ta mere</h4>
-                {{paragraph.content}}
+                <h4>{{paragraph[`title_${$lang}`]}}</h4>
+                {{paragraph[`content_${$lang}`]}}
               </div>
               <div v-if="paragraph.pictureSide!=='left'" class="col-md-6 paragraph-picture">
                 <img style="float:left;margin:10px" :src="paragraph.picture.url" alt="Thumbnail Image"/>
@@ -51,8 +51,8 @@
             </div>
             <div v-else>
               <div class="paragraph-text">
-                <h4>Lorem ipsum ta mere</h4>
-                {{paragraph.content}}
+                <h4>{{paragraph[`title_${$lang}`]}}</h4>
+                {{paragraph[`content_${$lang}`]}}
               </div>
             </div>
           </div>
@@ -87,7 +87,6 @@ export default {
     const projectRequest = axios.get(`${process.env.VUE_APP_API_URL}/projects/${this.$route.params.id}`);
     const project = (await projectRequest).data; 
     project.paragraphs = project.paragraphs.map(x => {
-      x.content.replace('\n', '<br>');
       if (x.picture){
         x.hasPicture = true;
       }
