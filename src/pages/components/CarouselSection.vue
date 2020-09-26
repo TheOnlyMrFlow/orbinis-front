@@ -3,7 +3,7 @@
     <div class="container" style="max-width: 100%;">
       <div class="row justify-content-center">
         <div class="col-12">
-          <el-carousel height="500px" arrow.height="2000px">
+          <el-carousel height="500px" arrow.height="2000px" :interval="2000">
             <el-carousel-item v-for="project in projects" :key="project.id">
               <parallax
                 class="page-header-image d-block"

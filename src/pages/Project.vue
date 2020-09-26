@@ -106,6 +106,7 @@ export default {
 <style>
 .paragraph-text {
   align-self: center;
+  white-space: pre-line;
 }
 
 .paragraph-picture {

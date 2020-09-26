@@ -14,11 +14,12 @@
     </div>
     <div class="section section-about-us">
       <div class="container">
-        <div class="row">
+        <loading-spinner v-if="! loadedDescription"/>
+        <div v-else class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">{{shortDescription.titre}}</h2>
-            <h5 class="description">
-              {{shortDescription.contenu}}
+            <h2 class="title">{{shortDescription[`title_${$lang}`]}}</h2>
+            <h5 class="description" style="white-space: pre-line;">
+              {{shortDescription[`content_${$lang}`]}}
             </h5>
           </div>
         </div>
@@ -82,6 +83,7 @@ import { Button, FormGroupInput } from '@/components';
 import CarouselSection from './components/CarouselSection';
 import ContactForm from './components/ContactForm';
 import TeamSection from './components/TeamSection';
+import LoadingSpinner from './components/LoadingSpinner'
 import axios from 'axios';
 export default {
   name: 'company',
@@ -91,19 +93,19 @@ export default {
     [FormGroupInput.name]: FormGroupInput,
     CarouselSection,
     ContactForm,
-    TeamSection
+    TeamSection,
+    LoadingSpinner
   },
   data() {
     return {
-      shortDescription: {
-        titre: '',
-        contenu: ''
-      }
+      loadedDescription: false,
+      shortDescription: {}
     };
   },
   async mounted () {
-    const shortDescRequest = axios.get(`${process.env.VUE_APP_API_URL}/company-description-courte`);
+    const shortDescRequest = axios.get(`${process.env.VUE_APP_API_URL}/company-short-description`);
     this.shortDescription = (await shortDescRequest).data.section;
+    this.loadedDescription = true;
   }
 };
 </script>
