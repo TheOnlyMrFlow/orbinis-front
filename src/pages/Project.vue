@@ -36,7 +36,8 @@
         </div> -->
 
         <div class="container" style="text-align: justify;">
-          <div class="paragraph" v-for="paragraph in project.paragraphs" :key="paragraph.id">
+          <loading-spinner v-if="! loaded"/>
+          <div v-else class="paragraph" v-for="paragraph in project.paragraphs" :key="paragraph.id">
             <div class="row" v-if="paragraph.hasPicture">
               <div v-if="paragraph.pictureSide==='left'" class="col-md-6 paragraph-picture">
                 <img style="float:left;margin:10px" :src="paragraph.picture.url" alt="Thumbnail Image"/>
@@ -64,15 +65,17 @@
 <script>
 import MainFooter from '@/layout/MainFooter';
 import axios from 'axios'
+import LoadingSpinner from './components/LoadingSpinner'
 export default {
   name: 'project',
   bodyClass: 'project-page',
   components: {
-      
+      LoadingSpinner
     },
   data() {
     return {
       project: {
+        loaded: false,
         coverPicture:{
           fullUrl: null
         },
@@ -96,6 +99,7 @@ export default {
       return x;
     });
     this.project = project;
+    this.loaded = true;
   }
 };
 </script>

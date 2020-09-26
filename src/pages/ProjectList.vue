@@ -3,7 +3,8 @@
     <div class="section">
       <div class="container" style="text-align: justify;">
         <center><h2 class="projects-page-title">{{$lang ==='FR' ? 'NOS PROJETS' : 'OUR PROJECTS'}}</h2></center>
-        <div v-for="category in categories" :key="category.name">
+        <loading-spinner v-if="! loaded"/>
+        <div v-else v-for="category in categories" :key="category.name">
           <h3 class="project-category-title">{{ category[$lang] }}</h3>
           <router-link
             v-for="project in projects[category.name]"
@@ -34,12 +35,16 @@
 <script>
 import MainFooter from "@/layout/MainFooter";
 import axios from "axios";
+import LoadingSpinner from './components/LoadingSpinner'
 export default {
   name: "projects",
   bodyClass: "projects-page",
-  components: {},
+  components: {
+    LoadingSpinner
+  },
   data() {
     return {
+      loaded: false,
       categories: [
         {
           name: "show",
@@ -76,6 +81,7 @@ export default {
       projects[cat.name] = projectsData.filter((x) => x.type == cat.name);
     });
     this.projects = projects;
+    this.loaded = true;
   },
 };
 </script>

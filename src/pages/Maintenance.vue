@@ -10,10 +10,10 @@
             <animateTransform attributeName="transform" begin="0s" dur="2s" from="0 78 21" repeatCount="indefinite" to="-360 78 21" type="rotate"/>
             </g>
         </svg>
-        <h1>Under Maintanance</h1>
-        <h2>Sorry for the inconvenience.</h2>
-        <h3>To contact us in the meantime please email:</h3>
-        <a href="mailto:comte.florian@gmail.com">lucie@orbinis.dance</a>
+        <h1>{{$lang === 'FR' ? 'Orbinis.dance est temporairement indisponible' : 'Orbinis website is current not available'}}</h1>
+        <h2>{{$lang === 'FR' ? 'Le site est en cours de maintenance, merci de réessayer plus tard.' : 'The site is under maintenance, please try again later.'}}</h2>
+        <h3>{{$lang === 'FR' ? 'En attendant, vous pouvez nous contacter à l\'adresse suivante:' : 'To contact us in the meantime please email:'}}</h3>
+        <a href="mailto:lucie@orbinis.com">lucie@orbinis.dance</a>
     </div>
 </template>
 

@@ -68,7 +68,7 @@
       </div>
       <div class="text-center">
         <router-link to="/projects">
-          <n-button type="primary" color="danger" round size="lg">Discover our projects</n-button>
+          <n-button type="primary" color="danger" round size="lg">{{$lang === 'FR' ? 'Découvrez nos projets' : 'Discover our projects'}}</n-button>
         </router-link>
       </div>
     </div>

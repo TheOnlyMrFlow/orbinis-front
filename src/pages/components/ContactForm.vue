@@ -76,9 +76,13 @@ export default {
         }
       try {
         await axios.post(`${process.env.VUE_APP_API_URL}/contact-us`, payload);
-        this.feedbackMessage = 'Your message was successfully sent';
+        this.feedbackMessage = this.$lang === 'FR'
+          ? 'Votre message a bien été envoyé' 
+          : 'Your message was successfully sent';
       } catch(error) {
-        this.feedbackMessage = 'Sorry, an error occured. Please contact lucie@orbinis.dance directly';
+        this.feedbackMessage = this.$lang === 'FR'
+        ? 'Désolé, une erreur s\'est produite. Merci de nous ocntacter directement à l\'adresse suivante : lucie@orbinis@dance'
+        : 'Sorry, an error occured. Please contact lucie@orbinis.dance directly';
       } finally {
         this.messageSent = true;
       }
