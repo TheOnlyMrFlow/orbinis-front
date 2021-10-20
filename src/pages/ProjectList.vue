@@ -15,7 +15,7 @@
               <div class="col-12 col-md-3 project-thumbnail-container">
                 <img
                   class="project-thumbnail"
-                  :src="project.coverPicture.formats.medium.url"
+                  :src="project.coverPicture.url"
                 />
               </div>
               <div class="col-12 col-md-9">
@@ -65,11 +65,12 @@ export default {
       projects: {},
     };
   },
-  async mounted() {    
+  async mounted() {
     const projectListRequest = axios.get(
       `${process.env.VUE_APP_API_URL}/projects`
     );
     const projectsData = (await projectListRequest).data;
+    console.log(projectsData);
     projectsData.forEach((proj) => {
       proj.preview = 
         proj.paragraphs[0]
