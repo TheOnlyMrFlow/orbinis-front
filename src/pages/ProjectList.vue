@@ -70,7 +70,6 @@ export default {
       `${process.env.VUE_APP_API_URL}/projects`
     );
     const projectsData = (await projectListRequest).data;
-    console.log(projectsData);
     projectsData.forEach((proj) => {
       proj.preview = 
         proj.paragraphs[0]
