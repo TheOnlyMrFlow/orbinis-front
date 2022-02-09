@@ -12,10 +12,10 @@
     <div class="mobile-landing">
       <h2>ORBINIS</h2>
     </div>
-    <div class="section section-about-us">
+    <loading-spinner v-if="! loadedDescription"/>
+    <div v-else class="section section-about-us">
       <div class="container">
-        <loading-spinner v-if="! loadedDescription"/>
-        <div v-else class="row">
+        <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
             <h2 class="title">{{shortDescription[`title_${$lang}`]}}</h2>
             <h5 class="description" style="white-space: pre-line;">
@@ -29,39 +29,33 @@
             <div class="col-md-6">
               <div
                 class="image-container image-left"
-                style="background-image: url('img/company1.jpg')"
+                :style="'background-image: url(' + shortDescription.image1.url + ')'"
               >
                 <!-- First image on the left side -->
                 <p class="blockquote blockquote-primary">
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget lectus tincidunt orci pretium ultrices. Morbi in lectus vel augue suscipit facilisis. Quisque sit amet tincidunt tortor, eget viverra elit. "
+                  {{shortDescription[`sideQuoteContent_${$lang}`]}}
                   <br />
                   <br />
-                  <small>-Lorem ipsum</small>
+                  <small>{{shortDescription[`sideQuoteAuthor_${$lang}`]}}</small>
                 </p>
               </div>
               <!-- Second image on the left side of the article -->
               <div
                 class="image-container"
-                style="background-image: url('img/company2.jpg')"
+                :style="'background-image: url(' + shortDescription.image3.url + ')'"
               ></div>
             </div>
             <div class="col-md-5">
               <!-- First image on the right side, above the article -->
               <div
                 class="image-container image-right"
-                style="background-image: url('img/company3.jpg')"
+                :style="'background-image: url(' + shortDescription.image2.url + ')'"
               ></div>
               <h3>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                {{shortDescription[`title2_${$lang}`]}}
               </h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget lectus tincidunt orci pretium ultrices. Morbi in lectus vel augue suscipit facilisis. Quisque sit amet tincidunt tortor, eget viverra elit. Nam ut odio vitae nisi lobortis hendrerit. Nulla urna lectus, viverra vitae sem sed, interdum pretium lorem.
-              </p>
-              <p>
-                Vivamus vestibulum purus ac diam consectetur commodo. Nulla facilisi. Aenean eleifend enim magna, sed ornare justo mattis non. Fusce venenatis aliquet enim, ut auctor ante rutrum ut. Sed pharetra pretium nisi, at tincidunt diam posuere rutrum. Nulla congue urna ut lacinia sagittis. Mauris accumsan sollicitudin urna id dignissim. Sed vel rutrum diam.
-              </p>
-              <p>
-                Maecenas elit ipsum, gravida non quam id, bibendum egestas dolor. Duis tempor, erat ut maximus imperdiet, nunc magna efficitur leo, at ultrices nisi odio ut arcu. Vivamus dictum arcu eu lorem malesuada tincidunt. Donec tincidunt orci nec tempus venenatis. Curabitur a massa ultricies lorem varius maximus.
+              {{shortDescription[`content2_${$lang}`]}}  
               </p>
             </div>
           </div>

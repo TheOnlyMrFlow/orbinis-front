@@ -15,19 +15,13 @@
               <h4 class="title">{{member.name}}</h4>
               <p class="category text-primary">{{member[`role_${$lang}`]}}</p>
               <p class="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                eget lectus tincidunt orci pretium ultrices. Morbi in lectus vel
-                augue suscipit facilisis. Quisque sit amet tincidunt tortor,
-                eget viverra elit.
+                {{member[`description_${$lang}`]}}
               </p>
-              <a href="#pablo" class="btn btn-primary btn-icon btn-round"
+              <a v-if="member.twitter && member.twitter.length > 0" :href="member.twitter" class="btn btn-primary btn-icon btn-round"
                 ><i class="fab fa-twitter"></i
               ></a>
-              <a href="#pablo" class="btn btn-primary btn-icon btn-round"
+              <a v-if="member.instagram && member.instagram.length > 0" :href="member.twitter" class="btn btn-primary btn-icon btn-round"
                 ><i class="fab fa-instagram"></i
-              ></a>
-              <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                ><i class="fab fa-facebook-square"></i
               ></a>
             </div>
           </div>
@@ -56,8 +50,9 @@ export default {
   async mounted() {
     const teamMembersRequest = await axios.get(`${process.env.VUE_APP_API_URL}/team-members`);
     this.teamMembers = teamMembersRequest.data;
+    console.log(`description_${this.$lang}`);
+    console.log(this.teamMembers[`description_${this.$lang}`]);
     this.loaded = true;
-    
   }
 };
 </script>
