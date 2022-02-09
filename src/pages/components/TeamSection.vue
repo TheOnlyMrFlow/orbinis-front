@@ -50,8 +50,6 @@ export default {
   async mounted() {
     const teamMembersRequest = await axios.get(`${process.env.VUE_APP_API_URL}/team-members`);
     this.teamMembers = teamMembersRequest.data;
-    console.log(`description_${this.$lang}`);
-    console.log(this.teamMembers[`description_${this.$lang}`]);
     this.loaded = true;
   }
 };
